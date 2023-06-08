@@ -7,7 +7,7 @@ use App\Models\AdminModel;
 
 helper('session');
 
-class Login extends BaseController
+class LoginController extends BaseController
 {
     public function index()
     {
@@ -21,6 +21,7 @@ class Login extends BaseController
 
         $model = new AdminModel();
         $tb_user = $model->validateLogin($username, $password);
+
         if ($tb_user !== null) {
             $session = session();
             $session->set([
@@ -28,6 +29,7 @@ class Login extends BaseController
                 'username' => $tb_user['username'],
                 'nama' => $tb_user['nama']
             ]);
+
             return redirect()->to('/main');
         } else {
             return redirect()->back()->with('error', 'Username atau password salah')->withInput();
@@ -40,6 +42,6 @@ class Login extends BaseController
         session()->destroy();
 
         // Arahkan pengguna ke halaman login
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 }

@@ -63,6 +63,38 @@
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
+                    <script>
+                        document.querySelector("form[ng-submit='itemSearch()']").addEventListener("submit", function(
+                            event) {
+                            event.preventDefault();
+                            var searchText = this.querySelector("input[name='table_search']").value.trim()
+                                .toLowerCase();
+
+                            var rows = document.querySelectorAll(".table tbody tr");
+
+                            for (var i = 0; i < rows.length; i++) {
+                                var row = rows[i];
+                                var kodePenyakit = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
+                                var namaPenyakit = row.querySelector("td:nth-child(3)").textContent.toLowerCase();
+
+                                if (kodePenyakit.includes(searchText) || namaPenyakit.includes(searchText)) {
+                                    row.style.display = ""; // Menampilkan baris jika sesuai dengan pencarian
+                                } else {
+                                    row.style.display =
+                                        "none"; // Menyembunyikan baris jika tidak sesuai dengan pencarian
+                                }
+                            }
+
+                            var noResultsRow = document.querySelector(".no-results-row");
+                            if (searchText === "" || document.querySelectorAll(
+                                    ".table tbody tr:not(.no-results-row)").length > 0) {
+                                noResultsRow.style.display =
+                                    "none"; // Menyembunyikan baris jika terdapat hasil pencarian atau pencarian kosong
+                            } else {
+                                noResultsRow.style.display = ""; // Menampilkan baris jika tidak ada hasil pencarian
+                            }
+                        });
+                    </script>
                 </table>
             </div>
         </div>

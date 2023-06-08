@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\GejalaModel;
 
-class Data_gejala extends BaseController
+class GejalaController extends BaseController
 {
     public function index()
     {
@@ -15,7 +15,6 @@ class Data_gejala extends BaseController
 
         return view('pages/data_gejala', $data); // Memuat tampilan 'data_gejala.php' dengan data yang diberikan
     }
-
 
     public function tambah()
     {

@@ -42,23 +42,54 @@
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php foreach ($gejala as $key => $item) : ?>
-                            <tr>
-                                <td><?php echo $key + 1; ?></td>
-                                <td><?php echo $item['kode_gejala']; ?></td>
-                                <td><?php echo $item['nama_gejala']; ?></td>
-                                <td>
-                                    <a class="btn btn-warning btn-sm" type="button" data-toggle="modal" data-target="#form-edit-<?php echo $item['id_gejala']; ?>">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </a>
-                                    <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus-<?php echo $item['id_gejala']; ?>">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                    <?php foreach ($gejala as $key => $item) : ?>
+                        <tr>
+                            <td><?php echo $key + 1; ?></td>
+                            <td><?php echo $item['kode_gejala']; ?></td>
+                            <td><?php echo $item['nama_gejala']; ?></td>
+                            <td>
+                                <a class="btn btn-warning btn-sm" type="button" data-toggle="modal" data-target="#form-edit-<?php echo $item['id_gejala']; ?>">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-hapus-<?php echo $item['id_gejala']; ?>">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                     </tbody>
+                    <script>
+                        document.querySelector("form[ng-submit='itemSearch()']").addEventListener("submit", function(
+                            event) {
+                            event.preventDefault();
+                            var searchText = this.querySelector("input[name='table_search']").value.trim()
+                                .toLowerCase();
+
+                            var rows = document.querySelectorAll(".table tbody tr");
+
+                            for (var i = 0; i < rows.length; i++) {
+                                var row = rows[i];
+                                var kodeGejala = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
+                                var namaGejala = row.querySelector("td:nth-child(3)").textContent.toLowerCase();
+
+                                if (kodeGejala.includes(searchText) || namaGejala.includes(searchText)) {
+                                    row.style.display = ""; // Menampilkan baris jika sesuai dengan pencarian
+                                } else {
+                                    row.style.display =
+                                        "none"; // Menyembunyikan baris jika tidak sesuai dengan pencarian
+                                }
+                            }
+
+                            var noResultsRow = document.querySelector(".no-results-row");
+                            if (searchText === "" || document.querySelectorAll(
+                                    ".table tbody tr:not(.no-results-row)").length > 0) {
+                                noResultsRow.style.display =
+                                    "none"; // Menyembunyikan baris jika terdapat hasil pencarian atau pencarian kosong
+                            } else {
+                                noResultsRow.style.display = ""; // Menampilkan baris jika tidak ada hasil pencarian
+                            }
+                        });
+                    </script>
                 </table>
             </div>
         </div>

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\PenyakitModel;
 
-class Data_penyakit extends BaseController
+class PenyakitController extends BaseController
 {
     public function index()
     {

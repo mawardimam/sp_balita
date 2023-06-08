@@ -34,36 +34,41 @@ $routes->set404Override();
 
 // Login
 // landing page
-$routes->get('/', 'Home::index');
+$routes->get('/', 'HomeController::index');
 
 // Login
-$routes->get('/login', 'Login::index');
-$routes->post('/login', 'Login::prosesLogin');
-$routes->get('/logout', 'Login::logout');
-$routes->get('/main', 'Dashboard::index');
+$routes->get('/login', 'LoginController::index');
+$routes->post('/login', 'LoginController::prosesLogin');
+$routes->get('/logout', 'LoginController::logout');
+$routes->get('/main', 'DashboardController::index', ['filter' => 'checksession']);
 
 // user
-$routes->get('/data_user', 'Data_user::index');
-$routes->get('/tambah_user', 'Data_user::tambah');
+$routes->get('/data_user', 'UserController::index');
+$routes->get('/tambah_user', 'UserController::tambah');
 
 // gejala
-$routes->get('/data_gejala', 'Data_gejala::index');
-$routes->get('/data_gejala/tambah', 'Data_gejala::tambah');
-$routes->post('/data_gejala/tambah', 'Data_gejala::tambah');
-$routes->get('/data_gejala/hapus/(:any)', 'Data_gejala::hapus/$1');
-$routes->get('/data_gejala/edit/(:any)', 'Data_gejala::edit/$1');
-$routes->post('/data_gejala/update/(:num)', 'Data_gejala::update/$1');
+$routes->get('/data_gejala', 'GejalaController::index');
+$routes->get('/data_gejala/tambah', 'GejalaController::tambah');
+$routes->post('/data_gejala/tambah', 'GejalaController::tambah');
+$routes->get('/data_gejala/hapus/(:any)', 'GejalaController::hapus/$1');
+$routes->get('/data_gejala/edit/(:any)', 'GejalaController::edit/$1');
+$routes->post('/data_gejala/update/(:num)', 'GejalaController::update/$1');
 
 // penyakit
-$routes->get('/data_penyakit', 'Data_penyakit::index');
-$routes->get('/data_penyakit/tambah', 'Data_penyakit::tambah');
-$routes->post('/data_penyakit/tambah', 'Data_penyakit::tambah');
-$routes->get('/data_penyakit/hapus/(:any)', 'Data_penyakit::hapus/$1');
-$routes->get('/data_penyakit/edit/(:any)', 'Data_penyakit::edit/$1');
-$routes->post('/data_penyakit/update/(:num)', 'Data_penyakit::update/$1');
+$routes->get('/data_penyakit', 'PenyakitController::index');
+$routes->get('/data_penyakit/tambah', 'PenyakitController::tambah');
+$routes->post('/data_penyakit/tambah', 'PenyakitController::tambah');
+$routes->get('/data_penyakit/hapus/(:any)', 'PenyakitController::hapus/$1');
+$routes->get('/data_penyakit/edit/(:any)', 'PenyakitController::edit/$1');
+$routes->post('/data_penyakit/update/(:num)', 'PenyakitController::update/$1');
 
 // rule
-$routes->get('/data_rule', 'Data_rule::index');
+$routes->get('/data_rule', 'RuleController::index');
+$routes->get('/data_rule/tambah', 'RuleController::tambah');
+$routes->post('/data_rule/tambah', 'RuleController::tambah');
+$routes->get('/data_rule/hapus/(:any)', 'RuleController::hapus/$1');
+$routes->get('/data_rule/edit/(:any)', 'RuleController::edit/$1');
+$routes->post('/data_rule/update/(:num)', 'RuleController::update/$1');
 
 
 

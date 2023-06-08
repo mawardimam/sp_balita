@@ -61,7 +61,7 @@
 
                           <div class="small-box bg-success">
                               <div class="inner">
-                                  <h3>70</h3>
+                                  <h3><?= count($rule) ?></h3>
                                   <p>Data Rule</p>
                               </div>
                               <div class="icon">

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Data_user extends BaseController
+class UserController extends BaseController
 {
     public function index()
     {
