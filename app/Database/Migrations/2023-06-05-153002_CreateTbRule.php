@@ -15,13 +15,15 @@ class CreateTbRule extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nama_penyakit' => [
-                'type' => 'VARCHAR',
-                'constraint' => 150,
+            'id_penyakit' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
             ],
-            'nama_gejala' => [
-                'type' => 'VARCHAR',
-                'constraint' => 150,
+            'id_gejala' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
             ],
             'mb' => [
                 'type' => 'FLOAT',
@@ -33,7 +35,11 @@ class CreateTbRule extends Migration
                 'type' => 'FLOAT',
             ],
         ]);
+
         $this->forge->addKey('id_rule', true);
+        $this->forge->addForeignKey('id_penyakit', 'tb_penyakit', 'id_penyakit');
+        $this->forge->addForeignKey('id_gejala', 'tb_gejala', 'id_gejala');
+
         $this->forge->createTable('tb_rule');
     }
 

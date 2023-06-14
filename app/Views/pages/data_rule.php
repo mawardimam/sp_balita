@@ -1,17 +1,11 @@
 <?= $this->extend('layouts/template'); ?>
 <?= $this->section('content'); ?>
 <div class="content-wrapper">
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-            </div>
-        </div>
-    </div>
-    <section class="content">
+    <section class="content mt-3">
         <?= $this->include('layouts/alert') ?>
         <div class="card">
-            <div class="card-header">
-                <h2 class="card-title text-bold text-primary"> Data Rule</h2>
+            <div class="card-header mt-2">
+                <h3 class="card-title text-bold text-primary"> Data Rule</h3>
                 <div class="card-tools">
                     <form ng-submit="itemSearch()" class="form-inline" role="form">
                         <div class="input-group input-group-sm" style="width: 250px;">
@@ -27,7 +21,7 @@
                         <div class="input-group-append">
                             <a class="btn btn-primary btn-sm" type="button" data-toggle="modal"
                                 data-target="#form-tambah">
-                                <i class="fas fa-plus-circle"></i>
+                                <i class="fas fa-plus-circle"> Tambah data</i>
                             </a>
                         </div>
                         &nbsp;
@@ -36,11 +30,13 @@
             </div>
 
             <div class="card-body table-responsive p-0" style="height: 500px" ;>
-                <table class="table table-striped table-hover">
-                    <thead>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="bg-secondary">
                         <tr>
                             <th>No</th>
+                            <th>Kode Penyakit</th>
                             <th>Nama Penyakit</th>
+                            <th>Kode Gejala</th>
                             <th>Nama Gejala</th>
                             <th>Mb</th>
                             <th>Md</th>
@@ -52,7 +48,9 @@
                         <?php foreach ($rule as $key => $item) : ?>
                         <tr>
                             <td><?php echo $key + 1; ?></td>
+                            <td><?php echo $item['kode_penyakit']; ?></td>
                             <td><?php echo $item['nama_penyakit']; ?></td>
+                            <td><?php echo $item['kode_gejala']; ?></td>
                             <td><?php echo $item['nama_gejala']; ?></td>
                             <td><?php echo $item['mb']; ?></td>
                             <td><?php echo $item['md']; ?></td>
@@ -68,6 +66,7 @@
                                 </a>
                             </td>
                         </tr>
+                        <?php endforeach; ?>
                     </tbody>
                     <script>
                     document.querySelector("form[ng-submit='itemSearch()']").addEventListener("submit", function(
@@ -101,7 +100,6 @@
                         }
                     });
                     </script>
-                    <?php endforeach; ?>
                 </table>
             </div>
         </div>
@@ -121,19 +119,19 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Nama Penyakit</label>
-                            <select class="form-control" id="nama_penyakit" name="nama_penyakit">
+                            <select class="form-control" id="id_penyakit" name="id_penyakit">
                                 <option selected>Pilih Penyakit</option>
                                 <?php foreach ($penyakit as $item) : ?>
-                                <option value="<?= $item['nama_penyakit'] ?>"><?= $item['nama_penyakit'] ?></option>
+                                <option value="<?= $item['id_penyakit'] ?>"><?= $item['nama_penyakit'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Nama Gejala</label>
-                            <select class="form-control" id="nama_gejala" name="nama_gejala">
+                            <select class="form-control" id="id_gejala" name="id_gejala">
                                 <option selected>Pilih Gejala</option>
                                 <?php foreach ($gejala as $item) : ?>
-                                <option value="<?= $item['nama_gejala'] ?>"><?= $item['nama_gejala'] ?></option>
+                                <option value="<?= $item['id_gejala'] ?>"><?= $item['nama_gejala'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -188,8 +186,8 @@
                             <label>Nama Penyakit</label>
                             <select name="nama_penyakit" class="form-control">
                                 <?php foreach ($penyakit as $itempenyakit) : ?>
-                                <option value="<?= $itempenyakit['nama_penyakit'] ?>"
-                                    <?= ($itempenyakit['nama_penyakit'] == $itempenyakit['nama_penyakit']) ? 'selected' : '' ?>>
+                                <option value="<?= $itempenyakit['id_penyakit'] ?>"
+                                    <?= ($itempenyakit['id_penyakit'] == $itempenyakit['id_penyakit']) ? 'selected' : '' ?>>
                                     <?= $itempenyakit['nama_penyakit'] ?>
                                 </option>
                                 <?php endforeach; ?>
@@ -199,8 +197,8 @@
                             <label>Nama Gejala</label>
                             <select name="nama_gejala" class="form-control">
                                 <?php foreach ($gejala as $itemgejala) : ?>
-                                <option value="<?= $itemgejala['nama_gejala'] ?>"
-                                    <?= ($itemgejala['nama_gejala'] == $itemgejala['nama_gejala']) ? 'selected' : '' ?>>
+                                <option value="<?= $itemgejala['id_gejala'] ?>"
+                                    <?= ($itemgejala['id_gejala'] == $itemgejala['id_gejala']) ? 'selected' : '' ?>>
                                     <?= $itemgejala['nama_gejala'] ?>
                                 </option>
                                 <?php endforeach; ?>

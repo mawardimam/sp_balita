@@ -5,13 +5,12 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\AdminModel;
 
-helper('session');
-
 class LoginController extends BaseController
 {
     public function index()
     {
-        return view('pages/login');
+        $data['title'] = 'Login'; // Menyertakan judul halaman
+        return view('pages/login', $data);
     }
 
     public function prosesLogin()

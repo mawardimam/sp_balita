@@ -6,19 +6,13 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="main" class="nav-link">Home</a>
         </li>
-        <!-- <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-        </li> -->
     </ul>
     <ul class="navbar-nav ml-auto">
-        <!-- <li class="nav-item">
-            <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="fas fa-search"></i>
-            </a> -->
         <div class="navbar-search-block">
             <form class="form-inline">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                        aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
                             <i class="fas fa-search"></i>
@@ -35,12 +29,6 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        <!-- <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
-                        role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li> -->
         <div class="user-panel mt-1 pb-1 mb-1 d-flex">
             <div class="info">
                 <label style="font-weight: normal;"><?= session('nama') ?></label>

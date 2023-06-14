@@ -9,10 +9,10 @@ class PenyakitController extends BaseController
     public function index()
     {
         $model = new PenyakitModel();
-        $data['penyakit'] = $model->findAll(); // Mengambil semua data gejala dari model
-
-        $data['title'] = 'Data Penyakit'; // Menyertakan judul halaman
-
+        $data = [
+            'penyakit' => $model->findAll(),
+            'title' => 'Data Rule',
+        ];
         return view('pages/data_penyakit', $data); // Memuat tampilan 'data_gejala.php' dengan data yang diberikan
     }
     public function tambah()
@@ -24,8 +24,7 @@ class PenyakitController extends BaseController
         $validation->setRules([
             'kode_penyakit' => 'required',
             'nama_penyakit' => 'required',
-            'keterangan' => 'required',
-            'solusi' => 'required'
+            'keterangan' => 'required'
         ]);
         if (!$validation->withRequest($this->request)->run()) {
             $errors = $validation->getErrors();
@@ -36,7 +35,6 @@ class PenyakitController extends BaseController
         $kodePenyakit = $this->request->getPost('kode_penyakit');
         $namaPenyakit = $this->request->getPost('nama_penyakit');
         $keterangan = $this->request->getPost('keterangan');
-        $solusi = $this->request->getPost('solusi');
 
 
         // Simpan data ke dalam database
@@ -44,7 +42,6 @@ class PenyakitController extends BaseController
             'kode_penyakit' => $kodePenyakit,
             'nama_penyakit' => $namaPenyakit,
             'keterangan' => $keterangan,
-            'solusi' => $solusi
         ];
         $model->insert($data);
 
@@ -98,7 +95,6 @@ class PenyakitController extends BaseController
             'kode_penyakit' => 'required',
             'nama_penyakit' => 'required',
             'keterangan' => 'required',
-            'solusi' => 'required'
         ]);
         if (!$validation->withRequest($this->request)->run()) {
             $errors = $validation->getErrors();
@@ -109,14 +105,12 @@ class PenyakitController extends BaseController
         $kodePenyakit = $this->request->getPost('kode_penyakit');
         $namaPenyakit = $this->request->getPost('nama_penyakit');
         $keterangan = $this->request->getPost('keterangan');
-        $solusi = $this->request->getPost('solusi');
 
         // Simpan data ke dalam database
         $updatedData = [
             'kode_penyakit' => $kodePenyakit,
             'nama_penyakit' => $namaPenyakit,
             'keterangan' => $keterangan,
-            'solusi' => $solusi
         ];
         $model->update($id, $updatedData);
 

@@ -17,7 +17,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL = 'http://localhost:8080/';
+    public string $baseURL = 'http://localhost/sp_balita/public/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

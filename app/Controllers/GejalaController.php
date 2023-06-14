@@ -9,10 +9,10 @@ class GejalaController extends BaseController
     public function index()
     {
         $model = new GejalaModel();
-        $data['gejala'] = $model->findAll(); // Mengambil semua data gejala dari model
-
-        $data['title'] = 'Data Gejala'; // Menyertakan judul halaman
-
+        $data = [
+            'gejala' => $model->findAll(),
+            'title' => 'Data Gejala',
+        ];
         return view('pages/data_gejala', $data); // Memuat tampilan 'data_gejala.php' dengan data yang diberikan
     }
 

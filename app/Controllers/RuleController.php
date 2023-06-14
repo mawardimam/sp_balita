@@ -14,15 +14,21 @@ class RuleController extends BaseController
         $penyakitModel = new PenyakitModel();
         $gejalaModel = new GejalaModel();
 
-        $data['rule'] = $model->findAll();
-        $data['penyakit'] = $penyakitModel->findAll();
-        $data['gejala'] = $gejalaModel->findAll();
+        $rules = $model->select('tb_rule.*, tb_penyakit.kode_penyakit, tb_penyakit.nama_penyakit, tb_gejala.kode_gejala, tb_gejala.nama_gejala')
+            ->join('tb_penyakit', 'tb_penyakit.id_penyakit = tb_rule.id_penyakit')
+            ->join('tb_gejala', 'tb_gejala.id_gejala = tb_rule.id_gejala')
+            ->findAll();
 
-        $data['title'] = 'Data Rule'; // Menyertakan judul halaman
+        $data = [
+            'rule' => $rules,
+            'penyakit' => $penyakitModel->findAll(),
+            'gejala' => $gejalaModel->findAll(),
+            'title' => 'Data Rule',
+        ];
 
-        return view('pages/data_rule', $data); // Memuat tampilan 'data_gejala.php' dengan data yang diberikan
-
+        return view('pages/data_rule', $data);
     }
+
 
     public function tambah()
     {
@@ -31,8 +37,8 @@ class RuleController extends BaseController
         // Validasi input
         $validation =  \Config\Services::validation();
         $validation->setRules([
-            'nama_penyakit' => 'required',
-            'nama_gejala' => 'required',
+            'id_penyakit' => 'required',
+            'id_gejala' => 'required',
             'mb' => 'required',
             'md' => 'required'
         ]);
@@ -43,16 +49,16 @@ class RuleController extends BaseController
 
 
         // Ambil data dari form
-        $namaPenyakit = $this->request->getPost('nama_penyakit');
-        $namaGejala = $this->request->getPost('nama_gejala');
+        $namaPenyakit = $this->request->getPost('id_penyakit');
+        $namaGejala = $this->request->getPost('id_gejala');
         $mb = $this->request->getPost('mb');
         $md = $this->request->getPost('md');
         $nilaiCf = $mb - $md;
 
         // Simpan data ke dalam database
         $data = [
-            'nama_penyakit' => $namaPenyakit,
-            'nama_gejala' => $namaGejala,
+            'id_penyakit' => $namaPenyakit,
+            'id_gejala' => $namaGejala,
             'mb' => $mb,
             'md' => $md,
             'nilai_cf' => $nilaiCf
@@ -127,8 +133,8 @@ class RuleController extends BaseController
 
         // Simpan data ke dalam database
         $updatedData = [
-            'nama_penyakit' => $namaPenyakit,
-            'nama_gejala' => $namaGejala,
+            'id_penyakit' => $namaPenyakit,
+            'id_gejala' => $namaGejala,
             'mb' => $mb,
             'md' => $md,
             'nilai_cf' => $nilaiCf

@@ -27,10 +27,6 @@ class CreateTbPenyakit extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'solusi' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-            ],
         ]);
         $this->forge->addKey('id_penyakit', true);
         $this->forge->createTable('tb_penyakit');

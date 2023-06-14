@@ -40,7 +40,8 @@ $routes->get('/', 'HomeController::index');
 $routes->get('/login', 'LoginController::index');
 $routes->post('/login', 'LoginController::prosesLogin');
 $routes->get('/logout', 'LoginController::logout');
-$routes->get('/main', 'DashboardController::index', ['filter' => 'checksession']);
+// $routes->get('/logout', 'LoginController::logout');
+$routes->get('/main', 'DashboardController::index');
 
 // user
 $routes->get('/data_user', 'UserController::index');
@@ -69,6 +70,14 @@ $routes->post('/data_rule/tambah', 'RuleController::tambah');
 $routes->get('/data_rule/hapus/(:any)', 'RuleController::hapus/$1');
 $routes->get('/data_rule/edit/(:any)', 'RuleController::edit/$1');
 $routes->post('/data_rule/update/(:num)', 'RuleController::update/$1');
+
+// solusi
+$routes->get('/data_solusi', 'SolusiController::index');
+$routes->get('/data_solusi/tambah', 'SolusiController::tambah');
+$routes->post('/data_solusi/tambah', 'SolusiController::tambah');
+$routes->get('/data_solusi/hapus/(:any)', 'SolusiController::hapus/$1');
+$routes->get('/data_solusi/edit/(:any)', 'SolusiController::edit/$1');
+$routes->post('/data_solusi/update/(:num)', 'SolusiController::update/$1');
 
 
 

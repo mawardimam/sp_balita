@@ -8,7 +8,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item mb-2">
                     <a href="main" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-landmark"></i>
                         <p>
                             Dashboard
                         </p>
@@ -32,8 +32,16 @@
                     </a>
                 </li>
                 <li class="nav-item mb-2">
+                    <a href="data_solusi" class="nav-link">
+                        <i class="nav-icon fas fa-hand-holding-medical"></i>
+                        <p>
+                            Data Solusi
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
                     <a href="data_rule" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
+                        <i class="nav-icon fas fa-clipboard"></i>
                         <p>
                             Data Rule
                         </p>

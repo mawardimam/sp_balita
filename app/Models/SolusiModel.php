@@ -4,32 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class RuleModel extends Model
+class SolusiModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_rule';
-    protected $primaryKey       = 'id_rule';
+    protected $table            = 'tb_solusi';
+    protected $primaryKey       = 'id_solusi';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'kode_solusi',
         'id_penyakit',
-        'id_gejala',
-        'mb',
-        'md',
-        'nilai_cf',
+        'solusi',
     ];
-    public function penyakit()
-    {
-        return $this->belongsTo('App\Models\PenyakitModel', 'id_penyakit', 'id_penyakit');
-    }
-
-    public function gejala()
-    {
-        return $this->belongsTo('App\Models\GejalaModel', 'id_gejala', 'id_gejala');
-    }
-
 
     // Dates
     protected $useTimestamps = false;

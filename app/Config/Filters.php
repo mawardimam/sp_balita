@@ -21,7 +21,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'checksession' => \App\Filters\CheckSession::class,
+        // 'checksession' => \App\Filters\CheckSession::class,
     ];
 
     /**
@@ -30,7 +30,7 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
-            'checksession',
+            // 'checksession',
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
@@ -62,7 +62,5 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [
-        'checksession' => \App\Filters\CheckSession::class,
-    ];
+    public array $filters = [];
 }
