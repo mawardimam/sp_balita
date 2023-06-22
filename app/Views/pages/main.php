@@ -79,8 +79,8 @@
                       <div class="col-lg-3 col-6">
                           <div class="small-box bg-primary">
                               <div class="inner">
-                                  <h3>322</h3>
-                                  <p>Data Riwayat</p>
+                                  <h3><?= count($riwayat) ?></h3>
+                                  <p>Riwayat Diagnosa</p>
                               </div>
                               <div class="icon">
                                   <i class="nav-icon fas fa-stethoscope"></i>

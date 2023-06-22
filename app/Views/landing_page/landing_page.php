@@ -23,7 +23,7 @@
         <a href="index.html" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="landing_page/img/logo.png" alt=""> -->
-            <h1>Impact<span>.</span></h1>
+            <h1>sistem pakar balita<span>.</span></h1>
         </a>
         <nav id="navbar" class="navbar">
             <ul>
@@ -48,13 +48,11 @@
 <section id="hero" class="hero" style="background :#0d9cb5;">
     <div class="container position-relative">
         <div class="row gy-5" data-aos="fade-in">
-            <div class="col-lg-6 order-1 order-lg-2 d-flex flex-column justify-content-center text-center text-lg-start">
-                <h2>Welcome to <span>Impact</span></h2>
-                <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque
-                    eum quaerat.</p>
+            <div
+                class="col-lg-6 order-1 order-lg-2 d-flex flex-column justify-content-center text-center text-lg-start">
+                <h2>selamat datang di sistem pakar diagnosis peyakit pada bayi (balita)<span>.</span></h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a href="mulai_diagnosa" class="btn-get-started">Get Started</a>
-                    <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                    <a href="mulai_diagnosa" class="btn-get-started">Halaman Diagnosa</a>
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2">
@@ -73,27 +71,57 @@
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
-            <div class="card-body table-responsive p-0" style="height: 500px" ;>
-                <table class="table table-striped table-hover table-bordered">
-                    <thead class="bg-secondary">
-                        <tr>
-                            <th>No</th>
-                            <th>Kode gejala</th>
-                            <th>Nama Gejala</th>
-                            <th>pilih nilai</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>G01</td>
-                            <td>pusing</td>
-                            <td>mungkin iya</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <div class="section-header">
+                <h2>About Us</h2>
+                <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id
+                    nobis omnis tiledo stran delop</p>
             </div>
 
+            <div class="row gy-4">
+                <div class="col-lg-6">
+                    <h3>Voluptatem dignissimos provident quasi corporis</h3>
+                    <img src="assets/img/about.jpg" class="img-fluid rounded-4 mb-4" alt="">
+                    <p>Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis quod nisi et. Placeat debitis
+                        quia recusandae odit et consequatur voluptatem. Dignissimos pariatur consectetur fugiat voluptas
+                        ea.</p>
+                    <p>Temporibus nihil enim deserunt sed ea. Provident sit expedita aut cupiditate nihil vitae quo
+                        officia vel. Blanditiis eligendi possimus et in cum. Quidem eos ut sint rem veniam qui. Ut ut
+                        repellendus nobis tempore doloribus debitis explicabo similique sit. Accusantium sed ut omnis
+                        beatae neque deleniti repellendus.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="content ps-0 ps-lg-5">
+                        <p class="fst-italic">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore
+                            magna aliqua.
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in
+                                voluptate velit.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda
+                                mastiro dolore eu fugiat nulla pariatur.</li>
+                        </ul>
+                        <p>
+                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate
+                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident
+                        </p>
+
+                        <div class="position-relative mt-4">
+                            <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
+                            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section><!-- End About Us Section -->
 
     <!-- ======= Clients Section ======= -->
@@ -222,7 +250,8 @@
                     autem uia reprehenderit sunt deleniti</p>
             </div>
 
-            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+                data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
 
                 <div>
                     <ul class="portfolio-flters">
@@ -238,7 +267,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/app-1.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -248,7 +279,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-product">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/product-1.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">Product 1</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -258,7 +291,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/branding-1.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">Branding 1</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -268,7 +303,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-books">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/books-1.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">Books 1</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -278,7 +315,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/app-2.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">App 2</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -288,7 +327,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-product">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/product-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/product-2.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/product-2.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">Product 2</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -298,7 +339,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/branding-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/branding-2.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/branding-2.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">Branding 2</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -308,7 +351,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-books">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/books-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/books-2.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/books-2.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">Books 2</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -318,7 +363,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/app-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/app-3.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/app-3.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">App 3</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -328,7 +375,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-product">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/product-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/product-3.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/product-3.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">Product 3</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -338,7 +387,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/branding-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/branding-3.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/branding-3.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">Branding 3</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -348,7 +399,9 @@
 
                     <div class="col-xl-4 col-md-6 portfolio-item filter-books">
                         <div class="portfolio-wrap">
-                            <a href="assets/img/portfolio/books-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt=""></a>
+                            <a href="assets/img/portfolio/books-3.jpg" data-gallery="portfolio-gallery-app"
+                                class="glightbox"><img src="assets/img/portfolio/books-3.jpg" class="img-fluid"
+                                    alt=""></a>
                             <div class="portfolio-info">
                                 <h4><a href="portfolio-details.html" title="More Details">Books 3</a></h4>
                                 <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -375,17 +428,20 @@
                 <div class="col-lg-6">
 
                     <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                            class="purecounter"></span>
                         <p><strong>Happy Clients</strong> consequuntur quae diredo para mesta</p>
                     </div><!-- End Stats Item -->
 
                     <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                            class="purecounter"></span>
                         <p><strong>Projects</strong> adipisci atque cum quia aut</p>
                     </div><!-- End Stats Item -->
 
                     <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1"
+                            class="purecounter"></span>
                         <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
                     </div><!-- End Stats Item -->
 
@@ -464,17 +520,21 @@
                     <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                    required>
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                                required>
                         </div>
                         <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="7" placeholder="Message" required></textarea>
+                            <textarea class="form-control" name="message" rows="7" placeholder="Message"
+                                required></textarea>
                         </div>
                         <div class="my-3">
                             <div class="loading">Loading</div>

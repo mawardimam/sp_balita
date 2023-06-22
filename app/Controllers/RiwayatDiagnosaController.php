@@ -5,15 +5,15 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\DiagnosaModel;
 
-class LaporanController extends BaseController
+class RiwayatDiagnosaController extends BaseController
 {
     public function index()
     {
         $Diagnosas = new DiagnosaModel();
         $data = [
             'Diagnosas' => $Diagnosas->findAll(),
-            'title' => 'Data Gejala',
+            'title' => 'Riwayat Diagnosa',
         ];
-        return view('pages/data_laporan', $data);
+        return view('pages/riwayat_diagnosa', $data);
     }
 }

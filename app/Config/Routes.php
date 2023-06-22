@@ -80,7 +80,7 @@ $routes->get('/data_solusi/edit/(:any)', 'SolusiController::edit/$1');
 $routes->post('/data_solusi/update/(:num)', 'SolusiController::update/$1');
 
 // Laporan
-$routes->get('/data_laporan', 'LaporanController::index');
+$routes->get('/riwayat_diagnosa', 'RiwayatDiagnosaController::index');
 
 // Diagnosa
 $routes->get('/mulai_diagnosa', 'DiagnosaController::index');

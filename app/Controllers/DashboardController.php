@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 
 use App\Models\AdminModel;
+use App\Models\DiagnosaModel;
 use App\Models\GejalaModel;
 use App\Models\PenyakitModel;
 use App\Models\SolusiModel;
@@ -18,16 +19,19 @@ class DashboardController extends BaseController
         $penyakitmodel = new PenyakitModel();
         $solusimodel = new SolusiModel();
         $rulemodel = new RuleModel();
+        $diagnosamodel = new DiagnosaModel();
 
         $g = $gejalamodel->findAll();
         $p = $penyakitmodel->findAll();
         $s = $solusimodel->findAll();
         $r = $rulemodel->findAll();
+        $ri = $diagnosamodel->findAll();
         $data = [
             'gejala' => $g,
             'penyakit' => $p,
             'solusi' => $s,
             'rule' => $r,
+            'riwayat' => $ri,
             'title' => 'Dashboard',
         ];
 

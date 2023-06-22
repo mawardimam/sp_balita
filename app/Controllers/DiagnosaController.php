@@ -37,6 +37,7 @@ class DiagnosaController extends BaseController
         $namaOrtu = $this->request->getVar('nama_ortu');
         $usia = $this->request->getVar('usia');
         $alamat = $this->request->getVar('alamat');
+        $tanggal = $this->request->getVar('tanggal');
         $listSelectedGejala = $this->request->getVar('selectedGejala');
         $listCF = $this->request->getVar('cf');
 
@@ -163,10 +164,11 @@ class DiagnosaController extends BaseController
             'nama_ortu' => $namaOrtu,
             'usia' => $usia,
             'alamat' => $alamat,
+            'tanggal' => $tanggal,
             'deskripsi' => $deskripsi,
             'solusi' => $solusi,
             'kode_penyakit' => $kodePenyakit,
-            'cf' => $nilaiPenyakitTerbesar,
+            'nilai_cf' => $nilaiPenyakitTerbesar,
             'presentase' => number_format($nilaiPenyakitTerbesar * 100, 2),
         ]);
 
@@ -186,6 +188,7 @@ class DiagnosaController extends BaseController
             'nama_ortu' => $namaOrtu,
             'usia' => $usia,
             'alamat' => $alamat,
+            'tanggal' => $tanggal,
             'tingkat_kepercayaan' => $nilaiPenyakitTerbesar,
             'gejala' => $listGejala,
             'deskripsi' => $deskripsi,
