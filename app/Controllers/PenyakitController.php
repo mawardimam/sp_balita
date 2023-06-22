@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\PenyakitModel;
+use App\Models\RuleModel;
 
 class PenyakitController extends BaseController
 {
@@ -24,7 +25,8 @@ class PenyakitController extends BaseController
         $validation->setRules([
             'kode_penyakit' => 'required',
             'nama_penyakit' => 'required',
-            'keterangan' => 'required'
+            'deskripsi' => 'required',
+            'solusi' => 'required'
         ]);
         if (!$validation->withRequest($this->request)->run()) {
             $errors = $validation->getErrors();
@@ -34,14 +36,16 @@ class PenyakitController extends BaseController
         // Ambil data dari form
         $kodePenyakit = $this->request->getPost('kode_penyakit');
         $namaPenyakit = $this->request->getPost('nama_penyakit');
-        $keterangan = $this->request->getPost('keterangan');
+        $deskripsi = $this->request->getPost('deskripsi');
+        $solusi = $this->request->getPost('solusi');
 
 
         // Simpan data ke dalam database
         $data = [
             'kode_penyakit' => $kodePenyakit,
             'nama_penyakit' => $namaPenyakit,
-            'keterangan' => $keterangan,
+            'deskripsi' => $deskripsi,
+            'solusi' => $solusi,
         ];
         $model->insert($data);
 
@@ -54,7 +58,12 @@ class PenyakitController extends BaseController
         // Cek apakah data dengan ID yang diberikan ada dalam database
         $data = $model->find($id);
         if (!$data) {
-            return redirect()->to('/data_penyakit')->with('error', 'Data Penyakit tidak ditemukan');
+            return redirect()->to('/data_penyakit')->with('hapus', 'Data Penyakit tidak ditemukan');
+        }
+        $ruleModel = new RuleModel();
+        $ruleCount = $ruleModel->where('id_penyakit', $id)->countAllResults();
+        if ($ruleCount > 0) {
+            return redirect()->to('/data_penyakit')->with('hapus', 'Data Penyakit tidak dapat dihapus karena masih digunakan dalam rule');
         }
 
         // Hapus data dari database
@@ -94,7 +103,8 @@ class PenyakitController extends BaseController
         $validation->setRules([
             'kode_penyakit' => 'required',
             'nama_penyakit' => 'required',
-            'keterangan' => 'required',
+            'deskripsi' => 'required',
+            'solusi' => 'required',
         ]);
         if (!$validation->withRequest($this->request)->run()) {
             $errors = $validation->getErrors();
@@ -104,13 +114,15 @@ class PenyakitController extends BaseController
         // Ambil data dari form
         $kodePenyakit = $this->request->getPost('kode_penyakit');
         $namaPenyakit = $this->request->getPost('nama_penyakit');
-        $keterangan = $this->request->getPost('keterangan');
+        $deskripsi = $this->request->getPost('deskripsi');
+        $solusi = $this->request->getPost('solusi');
 
         // Simpan data ke dalam database
         $updatedData = [
             'kode_penyakit' => $kodePenyakit,
             'nama_penyakit' => $namaPenyakit,
-            'keterangan' => $keterangan,
+            'deskripsi' => $deskripsi,
+            'solusi' => $solusi,
         ];
         $model->update($id, $updatedData);
 

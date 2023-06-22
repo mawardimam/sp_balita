@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\GejalaModel;
+use App\Models\RuleModel;
 
 class GejalaController extends BaseController
 {
@@ -53,15 +54,18 @@ class GejalaController extends BaseController
         // Cek apakah data dengan ID yang diberikan ada dalam database
         $data = $model->find($id);
         if (!$data) {
-            return redirect()->to('/data_gejala')->with('error', 'Data gejala tidak ditemukan');
+            return redirect()->to('/data_gejala')->with('hapus', 'Data gejala tidak ditemukan');
         }
-
+        $ruleModel = new RuleModel();
+        $ruleCount = $ruleModel->where('id_gejala', $id)->countAllResults();
+        if ($ruleCount > 0) {
+            return redirect()->to('/data_gejala')->with('hapus', 'Data Penyakit tidak dapat dihapus karena masih digunakan dalam rule');
+        }
         // Hapus data dari database
         $model->delete($id);
 
         return redirect()->to('/data_gejala')->with('hapus', 'Data gejala berhasil dihapus');
     }
-
 
     public function edit($id)
     {

@@ -18,7 +18,7 @@ class RuleModel extends Model
         'id_gejala',
         'mb',
         'md',
-        'nilai_cf',
+        'cf',
     ];
     public function penyakit()
     {

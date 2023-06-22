@@ -61,7 +61,7 @@ class RuleController extends BaseController
             'id_gejala' => $namaGejala,
             'mb' => $mb,
             'md' => $md,
-            'nilai_cf' => $nilaiCf
+            'cf' => $nilaiCf
         ];
 
         $model->insert($data);
@@ -92,6 +92,7 @@ class RuleController extends BaseController
 
         // Cek apakah data dengan ID yang diberikan ada dalam database
         $data = $model->find($id);
+
         if (!$data) {
             return redirect()->to('/data_rule')->with('error', 'Data rule tidak ditemukan');
         }
@@ -137,7 +138,7 @@ class RuleController extends BaseController
             'id_gejala' => $namaGejala,
             'mb' => $mb,
             'md' => $md,
-            'nilai_cf' => $nilaiCf
+            'cf' => $nilaiCf
         ];
         $model->update($id, $updatedData);
 

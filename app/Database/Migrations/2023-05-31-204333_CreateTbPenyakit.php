@@ -23,9 +23,11 @@ class CreateTbPenyakit extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 150,
             ],
-            'keterangan' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
+            'deskripsi' => [
+                'type' => 'TEXT',
+            ],
+            'solusi' => [
+                'type' => 'TEXT',
             ],
         ]);
         $this->forge->addKey('id_penyakit', true);

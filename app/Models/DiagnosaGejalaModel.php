@@ -4,21 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PenyakitModel extends Model
+class DiagnosaGejalaModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_penyakit';
-    protected $primaryKey       = 'id_penyakit';
+    protected $table            = 'tb_diagnosa_gejala';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'kode_penyakit',
-        'nama_penyakit',
-        'deskripsi',
-        'solusi',
-
+        'id_diagnosa',
+        'id_gejala',
     ];
 
     // Dates

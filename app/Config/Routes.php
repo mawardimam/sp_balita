@@ -79,7 +79,12 @@ $routes->get('/data_solusi/hapus/(:any)', 'SolusiController::hapus/$1');
 $routes->get('/data_solusi/edit/(:any)', 'SolusiController::edit/$1');
 $routes->post('/data_solusi/update/(:num)', 'SolusiController::update/$1');
 
+// Laporan
+$routes->get('/data_laporan', 'LaporanController::index');
 
+// Diagnosa
+$routes->get('/mulai_diagnosa', 'DiagnosaController::index');
+$routes->post('/hitung', 'DiagnosaController::start');
 
 /*
  * --------------------------------------------------------------------

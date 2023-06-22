@@ -6,28 +6,14 @@
         <div class="card">
             <div class="card-header mt-2">
                 <h3 class="card-title text-bold text-primary">Data Solusi</h3>
-                <div class="card-tools">
-                    <form ng-submit="itemSearch()" class="form-inline" role="form">
-                        <div class="input-group input-group-sm" style="width: 250px;">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search" [(ngModel)]="searchText">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default" (click)="itemSearch()">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                        &nbsp;
-                        <div class="input-group-append">
-                            <a class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#form-tambah">
-                                <i class="fas fa-plus-circle"> Tambah data</i>
-                            </a>
-                        </div>
-                        &nbsp;
-                    </form>
-                </div>
             </div>
-            <div class="card-body table-responsive p-0" style="height: 500px" ;>
-                <table class="table table-striped table-hover table-bordered">
+            <div class="card-body">
+                <div class="input-group-append float-right">
+                    <a class="btn btn-primary btn-sm float-right mx-1" type="button" data-toggle="modal" data-target="#form-tambah">
+                        <i class="fas fa-plus-circle"> Tambah data</i>
+                    </a>
+                </div>
+                <table class="table table-striped table-hover table-bordered" id="example1">
                     <thead class="bg-secondary">
                         <tr>
                             <th>No</th>

@@ -4,21 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PenyakitModel extends Model
+class CFUserModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_penyakit';
-    protected $primaryKey       = 'id_penyakit';
+    protected $table            = 'tb_cf_user';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'kode_penyakit',
-        'nama_penyakit',
-        'deskripsi',
-        'solusi',
-
+        'nama_nilai',
+        'cf',
     ];
 
     // Dates
