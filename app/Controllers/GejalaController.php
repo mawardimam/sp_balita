@@ -21,89 +21,52 @@ class GejalaController extends BaseController
     {
         $model = new GejalaModel();
 
-        // Validasi input
-        $validation =  \Config\Services::validation();
-        $validation->setRules([
-            'kode_gejala' => 'required',
-            'nama_gejala' => 'required'
-        ]);
-        if (!$validation->withRequest($this->request)->run()) {
-            $errors = $validation->getErrors();
-            return redirect()->back()->withInput()->with('errors', $errors);
-        }
-
-        // Ambil data dari form
+        // Ambil data dari modal tambah
         $kodeGejala = $this->request->getPost('kode_gejala');
         $namaGejala = $this->request->getPost('nama_gejala');
 
+        // validasi tambah
+        $existingGejala = $model->where('kode_gejala', $kodeGejala)
+            ->orWhere('nama_gejala', $namaGejala)
+            ->first();
+
+        if ($existingGejala) {
+            return redirect()->back()->with('warning', 'Kode gejala atau nama gejala sudah ada');
+        }
         // Simpan data ke dalam database
         $data = [
             'kode_gejala' => $kodeGejala,
             'nama_gejala' => $namaGejala
         ];
         $model->insert($data);
-
-        return redirect()->to('/data_gejala')->with('success', 'Data gejala berhasil ditambahkan'); // Redirect kembali ke halaman data penyakit setelah penambahan
+        return redirect()->to('/data_gejala')->with('success', 'Data gejala berhasil ditambahkan');
     }
-
 
     public function hapus($id)
     {
         $model = new GejalaModel();
-
-        // Cek apakah data dengan ID yang diberikan ada dalam database
-        $data = $model->find($id);
-        if (!$data) {
-            return redirect()->to('/data_gejala')->with('hapus', 'Data gejala tidak ditemukan');
-        }
         $ruleModel = new RuleModel();
         $ruleCount = $ruleModel->where('id_gejala', $id)->countAllResults();
         if ($ruleCount > 0) {
-            return redirect()->to('/data_gejala')->with('hapus', 'Data Penyakit tidak dapat dihapus karena masih digunakan dalam rule');
+            return redirect()->to('/data_gejala')->with('warning', 'Data Gejala tidak dapat dihapus karena masih digunakan dalam rule');
         }
         // Hapus data dari database
         $model->delete($id);
-
         return redirect()->to('/data_gejala')->with('hapus', 'Data gejala berhasil dihapus');
     }
 
     public function edit($id)
     {
         $model = new GejalaModel();
-
-        // Cek apakah data dengan ID yang diberikan ada dalam database
         $data = $model->find($id);
-        if (!$data) {
-            return redirect()->to('/data_gejala')->with('error', 'Data gejala tidak ditemukan');
-        }
-
-        // Tampilkan modal edit dengan data gejala yang akan diubah
         return view('modal/edit_gejala', ['gejala' => $data]);
     }
-
 
     public function update($id)
     {
         $model = new GejalaModel();
-
-        // Cek apakah data dengan ID yang diberikan ada dalam database
         $data = $model->find($id);
-        if (!$data) {
-            return redirect()->to('/data_gejala')->with('error', 'Data gejala tidak ditemukan');
-        }
-
-        // Validasi input
-        $validation =  \Config\Services::validation();
-        $validation->setRules([
-            'kode_gejala' => 'required',
-            'nama_gejala' => 'required'
-        ]);
-        if (!$validation->withRequest($this->request)->run()) {
-            $errors = $validation->getErrors();
-            return redirect()->back()->withInput()->with('errors', $errors);
-        }
-
-        // Ambil data dari form
+        // Ambil data dari modal edit
         $kodeGejala = $this->request->getPost('kode_gejala');
         $namaGejala = $this->request->getPost('nama_gejala');
 
@@ -113,7 +76,6 @@ class GejalaController extends BaseController
             'nama_gejala' => $namaGejala
         ];
         $model->update($id, $updatedData);
-
         return redirect()->to('/data_gejala')->with('success', 'Data gejala berhasil diperbarui');
     }
 }

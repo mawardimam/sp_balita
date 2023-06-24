@@ -80,14 +80,20 @@
     </script>
 </head>
 
+
 <body class="hold-transition login-page">
-    <div class="login-box">
+    <div class="login-box ">
         <div class="login-logo">
-            <a href="#"><b>SP</b>-Balita</a>
+            <p>Sistem pakar balita</p>
         </div>
-        <div class="card">
+        <div class="card card-outline card-secondary" style="width: 400px; margin: auto;">
+            <div class="card-header text-center">
+                <h3 class="card-title">Login Admin</h3>
+            </div>
+            <div style="max-width: 200px; margin: 0 auto;">
+                <img src="landing_page/img/baby.png" class="card-img-top" alt="Baby Image">
+            </div>
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
                 <?php if (session()->getFlashdata('error')) : ?>
                     <div class="alert alert-danger">
                         <?= session()->getFlashdata('error') ?>
@@ -106,12 +112,27 @@
                         <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                                <span id="togglePassword" class="fas fa-eye"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 mb-2">
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+                    <script>
+                        const togglePassword = document.querySelector('#togglePassword');
+                        const passwordInput = document.querySelector('#password');
+
+                        togglePassword.addEventListener('click', function() {
+                            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                            passwordInput.setAttribute('type', type);
+                            togglePassword.classList.toggle('fa-eye');
+                            togglePassword.classList.toggle('fa-eye-slash');
+                        });
+                    </script>
+
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -119,11 +140,10 @@
     </div>
 
     <script src="plugins/jquery/jquery.min.js"></script>
-
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <script src="dist/js/adminlte.min.js?v=3.2.0"></script>
-
 </body>
+
+</html>
 
 </html>

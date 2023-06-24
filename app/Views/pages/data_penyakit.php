@@ -16,7 +16,7 @@
                 <table class="table table-striped table-hover table-bordered" id="example1">
                     <thead class="bg-secondary">
                         <tr>
-                            <th>No</th>
+                            <th class="text-center">No</th>
                             <th>Kode Penyakit</th>
                             <th>Nama Penyakit</th>
                             <th>Deskripsi</th>
@@ -27,7 +27,7 @@
                     <tbody>
                         <?php foreach ($penyakit as $key => $item) : ?>
                             <tr>
-                                <td><?php echo $key + 1; ?></td>
+                                <td class="text-center"><?php echo $key + 1; ?></td>
                                 <td><?php echo $item['kode_penyakit']; ?></td>
                                 <td><?php echo $item['nama_penyakit']; ?></td>
                                 <td><?php echo $item['deskripsi']; ?></td>
@@ -108,11 +108,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi</label>
-                                <textarea type="text" name="deskripsi" class="form-control" placeholder="Deskripsi" rows="3" required value="<?= $item['deskripsi'] ?>"></textarea>
+                                <textarea name="deskripsi" class="form-control" placeholder="deskripsi" rows="3" required><?= $item['deskripsi'] ?></textarea>
+
                             </div>
                             <div class="form-group">
                                 <label>Solusi</label>
-                                <textarea type="text" name="solusi" class="form-control" placeholder="Solusi" rows="3" required value="<?= $item['solusi'] ?>"></textarea>
+                                <textarea name="solusi" class="form-control" placeholder="solusi" rows="3" required><?= $item['solusi'] ?></textarea>
                             </div>
 
                         </div>

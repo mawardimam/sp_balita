@@ -10,6 +10,12 @@
     </div>
 <?php endif; ?>
 
+<?php if (session()->getFlashdata('warning')) : ?>
+    <div id="success-flash" class="alert alert-warning">
+        <?= session()->getFlashdata('warning') ?>
+    </div>
+<?php endif; ?>
+
 <script>
     setTimeout(function() {
         var hapusFlash = document.getElementById('hapus-flash');

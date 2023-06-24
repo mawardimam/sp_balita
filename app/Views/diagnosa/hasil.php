@@ -40,7 +40,7 @@
                         </div><!-- End Info Item -->
 
                         <div class="info-item d-flex">
-                            <i class="fas fa-bars flex-shrink-0"></i>
+                            <i class="fas fa-briefcase-medical flex-shrink-0"></i>
                             <div>
                                 <h4>Nama Penyakit:</h4>
                                 <h5><?= $resultDiagnosa['nama_penyakit']; ?></h5>
@@ -55,26 +55,28 @@
                         <div class="row">
                             <div class="form-group">
                                 <label class="my-2">Nama Balita</label>
-                                <input type="text" name="nama_balita" class="form-control" id="nama_balita" x value="<?= $resultDiagnosa['nama_balita']; ?>" required readonly>
+                                <input type="text" name="nama_balita" class="form-control" id="nama_balita" x
+                                    value="<?= $resultDiagnosa['nama_balita']; ?>" required readonly>
                             </div>
                             <div class="form-group">
                                 <label class="my-2">Nama Orang Tua</label>
-                                <input type="text" class="form-control" name="nama_ortu" id="nama_ortu" value="<?= $resultDiagnosa['nama_ortu']; ?>" required readonly>
+                                <input type="text" class="form-control" name="nama_ortu" id="nama_ortu"
+                                    value="<?= $resultDiagnosa['nama_ortu']; ?>" required readonly>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="my-2">Usia</label>
-                            <input type="text" name="usia" class="form-control" id="usia" value="<?= $resultDiagnosa['usia']; ?>" required readonly>
+                            <label class="my-2">Usia balita</label>
+                            <input type="text" name="usia" class="form-control" id="usia"
+                                value="<?= $resultDiagnosa['usia']; ?>" required readonly>
                         </div>
                         <div class="form-group mt-3">
-                            <textarea class="form-control" name="alamat" rows="7" required readonly><?= $resultDiagnosa['alamat']; ?></textarea>
+                            <label class="my-2">Alamat</label>
+                            <textarea class="form-control" name="alamat" rows="7" required
+                                readonly><?= $resultDiagnosa['alamat']; ?></textarea>
                         </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        <div class="text-center my-2">
+                            <a href="<?= base_url('mulai_diagnosa') ?>" class="btn btn-secondary">Kembali</a>
                         </div>
-                        <div class="text-center"><button href="mulai_diagnosa" type="submit">Kembali</button></div>
                     </form>
                 </div><!-- End Contact Form -->
             </div>
@@ -137,14 +139,14 @@
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($resultDiagnosa['gejala'] as $gejala) : ?>
-                                        <tr>
-                                            <td><?= $i++; ?></td>
-                                            <td><?= $gejala['kode_gejala']; ?></td>
-                                            <td><?= $gejala['nama_gejala']; ?></td>
-                                            <td><?= $gejala['tingkat_kepercayaan']; ?></td>
-                                            <td><?= $gejala['cf_user']; ?></td>
-                                            <td><?= $gejala['nilai_cf']; ?></td>
-                                        </tr>
+                                    <tr>
+                                        <td><?= $i++; ?></td>
+                                        <td><?= $gejala['kode_gejala']; ?></td>
+                                        <td><?= $gejala['nama_gejala']; ?></td>
+                                        <td><?= $gejala['tingkat_kepercayaan']; ?></td>
+                                        <td><?= $gejala['cf_user']; ?></td>
+                                        <td><?= $gejala['nilai_cf']; ?></td>
+                                    </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -152,25 +154,29 @@
                                 <div class="form-group row py-1">
                                     <label class="my-2">Kode Penyakit</label>
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" value="<?= $resultDiagnosa['kode_penyakit']; ?>" readonly>
+                                        <input type="text" class="form-control"
+                                            value="<?= $resultDiagnosa['kode_penyakit']; ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row py-1">
                                     <label class="my-2">Nama Penyakit</label>
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" value="<?= $resultDiagnosa['nama_penyakit']; ?>" readonly>
+                                        <input type="text" class="form-control"
+                                            value="<?= $resultDiagnosa['nama_penyakit']; ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row py-1">
                                     <label class="my-2">Deskripsi</label>
                                     <div class="col-sm-12">
-                                        <textarea type="text" rows="3" class="form-control" readonly><?= $resultDiagnosa['deskripsi']; ?></textarea>
+                                        <textarea type="text" rows="3" class="form-control"
+                                            readonly><?= $resultDiagnosa['deskripsi']; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row py-1">
                                     <label class="my-2">Solusi</label>
                                     <div class="col-sm-12">
-                                        <textarea type="text" rows="3" class="form-control" readonly><?= $resultDiagnosa['solusi']; ?></textarea>
+                                        <textarea type="text" rows="3" class="form-control"
+                                            readonly><?= $resultDiagnosa['solusi']; ?></textarea>
                                     </div>
                                 </div>
                             </form>

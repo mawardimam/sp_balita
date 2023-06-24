@@ -16,7 +16,7 @@
                 <table class="table table-striped table-hover table-bordered" id="example1">
                     <thead class="bg-secondary">
                         <tr>
-                            <th>No</th>
+                            <th class="text-center">No</th>
                             <th>Kode Gejala</th>
                             <th>Nama Gejala</th>
                             <th>Aksi</th>
@@ -24,7 +24,7 @@
                     </thead>
                     <?php foreach ($gejala as $key => $item) : ?>
                         <tr>
-                            <td><?php echo $key + 1; ?></td>
+                            <td class="text-center"><?php echo $key + 1; ?></td>
                             <td><?php echo $item['kode_gejala']; ?></td>
                             <td><?php echo $item['nama_gejala']; ?></td>
                             <td>

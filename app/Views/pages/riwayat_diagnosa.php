@@ -23,16 +23,16 @@
                     </thead>
                     <?php $i = 1; ?>
                     <?php foreach ($Diagnosas as $diagnosa) : ?>
-                        <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= $diagnosa['nama_balita']; ?></td>
-                            <td><?= $diagnosa['nama_ortu']; ?></td>
-                            <td><?= $diagnosa['usia']; ?></td>
-                            <td><?= $diagnosa['alamat']; ?></td>
-                            <td><?= $diagnosa['tanggal']; ?></td>
-                            <td><?= $diagnosa['nilai_cf']; ?></td>
-                            <td><?= $diagnosa['presentase']; ?> %</td>
-                        </tr>
+                    <tr>
+                        <td><?= $i++; ?></td>
+                        <td><?= $diagnosa['nama_balita']; ?></td>
+                        <td><?= $diagnosa['nama_ortu']; ?></td>
+                        <td><?= $diagnosa['usia']; ?></td>
+                        <td><?= $diagnosa['alamat']; ?></td>
+                        <td><?= $diagnosa['tanggal']; ?></td>
+                        <td><?= $diagnosa['nilai_cf']; ?></td>
+                        <td><?= $diagnosa['presentase']; ?> %</td>
+                    </tr>
                     <?php endforeach; ?>
                     </tbody>
                 </table>

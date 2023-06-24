@@ -21,6 +21,7 @@ class DiagnosaController extends BaseController
         $data['result'] = $diagnosa->findAll();
         $data['result'] = $gejala->findAll();
         $data['listCFUser'] = $cfUserModel->findAll();
+
         return view('diagnosa/index', $data);
     }
 
