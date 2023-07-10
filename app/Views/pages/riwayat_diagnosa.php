@@ -17,6 +17,7 @@
                             <th>Usia Balita</th>
                             <th>Alamat</th>
                             <th>Tanggal Diagnosa</th>
+                            <th>Nama Penyakit</th>
                             <th>Hasil CF</th>
                             <th>Presentase</th>
                         </tr>
@@ -30,6 +31,7 @@
                         <td><?= $diagnosa['usia']; ?></td>
                         <td><?= $diagnosa['alamat']; ?></td>
                         <td><?= $diagnosa['tanggal']; ?></td>
+                        <td><?= $diagnosa['nama_penyakit']; ?></td>
                         <td><?= $diagnosa['nilai_cf']; ?></td>
                         <td><?= $diagnosa['presentase']; ?> %</td>
                     </tr>

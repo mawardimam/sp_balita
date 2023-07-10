@@ -3,7 +3,7 @@
       <?= $this->section('content'); ?>
 
       <div class="content-wrapper">
-
+          <?= $this->include('layouts/alert') ?>
           <div class="content-header">
               <div class="container-fluid">
                   <div class="row mb-2">
@@ -50,19 +50,6 @@
                           </div>
                       </div>
                       <div class="col-lg-3 col-6">
-                          <div class="small-box bg-info">
-                              <div class="inner">
-                                  <h3><?= count($solusi) ?></h3>
-                                  <p>Data Solusi</p>
-                              </div>
-                              <div class="icon">
-                                  <i class="nav-icon fas fa-hand-holding-medical"></i>
-                              </div>
-                              <a href="data_solusi" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
-                          </div>
-                      </div>
-
-                      <div class="col-lg-3 col-6">
                           <div class="small-box bg-success">
                               <div class="inner">
                                   <h3><?= count($rule) ?></h3>
@@ -85,7 +72,7 @@
                               <div class="icon">
                                   <i class="nav-icon fas fa-stethoscope"></i>
                               </div>
-                              <a href="#" class="small-box-footer">Lihat
+                              <a href="riwayat_diagnosa" class="small-box-footer">Lihat
                                   <i class="fas fa-arrow-circle-right"></i></a>
                           </div>
                       </div>

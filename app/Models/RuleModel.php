@@ -20,6 +20,14 @@ class RuleModel extends Model
         'md',
         'cf',
     ];
+
+    public function getRuleByPenyakitGejala($namaPenyakit, $namaGejala)
+    {
+        return $this->where('id_penyakit', $namaPenyakit)
+            ->where('id_gejala', $namaGejala)
+            ->first();
+    }
+
     public function penyakit()
     {
         return $this->belongsTo('App\Models\PenyakitModel', 'id_penyakit', 'id_penyakit');

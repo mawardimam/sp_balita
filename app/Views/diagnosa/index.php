@@ -1,6 +1,7 @@
 <?= $this->extend('layouts/template_diagnosa'); ?>
 <?= $this->section('content'); ?>
 
+
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="hero" style="background :#0d9cb5;">
     <div class="container position-relative">
@@ -17,9 +18,12 @@
             </div>
         </div>
     </div>
-
-
-    </div>
+    <?php if (isset($alert) && !empty($alert)) : ?>
+        <div class="alert alert-<?= $alert['type']; ?> alert-dismissible fade show" role="alert">
+            <?= $alert['message']; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
 </section>
 <!-- End Hero Section -->
 
@@ -31,23 +35,23 @@
             <form action="<?= site_url('hitung') ?>" method="post">
                 <div class="form-group py-2">
                     <label for="nama_balita" class="mb-2 text-black" style="float: left;">Nama Balita</label>
-                    <input type="text" name="nama_balita" id="nama_balita" class="form-control" placeholder="Nama Balita" required>
+                    <input type="text" name="nama_balita" id="nama_balita" class="form-control" placeholder="Nama Balita">
                 </div>
                 <div class="form-group py-2">
                     <label for="nama_ortu" class="mb-2 text-black" style="float: left;">Nama Ortu</label>
-                    <input type="text" name="nama_ortu" id="nama_ortu" class="form-control" placeholder="Nama Orang Tua" required>
+                    <input type="text" name="nama_ortu" id="nama_ortu" class="form-control" placeholder="Nama Orang Tua">
                 </div>
                 <div class="form-group py-2">
-                    <label for="usia" class="mb-2 text-black" style="float: left;">Usia</label>
-                    <input type="number" name="usia" id="usia" class="form-control" placeholder="Usia" required>
+                    <label for="usia" class="mb-2 text-black" style="float: left;">Usia Balita</label>
+                    <input type="text" name="usia" id="usia" class="form-control" placeholder="Usia Balita">
                 </div>
                 <div class="form-group py-2">
                     <label for="alamat" class="mb-2 text-black" style="float: left;">Alamat</label>
-                    <textarea type="text" name="alamat" id="alamat" class="form-control" rows="2" placeholder="Alamat" required></textarea>
+                    <textarea type="text" name="alamat" id="alamat" class="form-control" rows="2" placeholder="Alamat"></textarea>
                 </div>
                 <div class="form-group py-2">
                     <label for="tanggal" class="mb-2 text-black" style="float: left;">Tanggal Diagnosa</label>
-                    <input type="date" name="tanggal" id="tanggal" class="form-control" rows="2" placeholder="Alamat" required></input>
+                    <input type="date" name="tanggal" id="tanggal" class="form-control" rows="2" placeholder="Alamat"></input>
                 </div>
                 <div class="card-body table-responsive p-0" style="height: 500px" ;>
                     <table class="table table-striped table-hover table-bordered">

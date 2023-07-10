@@ -35,9 +35,21 @@ class RuleController extends BaseController
         // Ambil data dari modal tambah
         $namaPenyakit = $this->request->getPost('id_penyakit');
         $namaGejala = $this->request->getPost('id_gejala');
-        $mb = $this->request->getPost('mb');
-        $md = $this->request->getPost('md');
+        $mb = floatval($this->request->getPost('mb'));
+        $md = floatval($this->request->getPost('md'));
         $nilaiCf = $mb - $md;
+
+        $existingRule = $model->getRuleByPenyakitGejala($namaPenyakit, $namaGejala);
+        if ($existingRule !== null) {
+            // Jika data rule sudah ada, set pesan alert dengan session flash data
+            return redirect()->to('/data_rule')->with('warning', 'Nama penyakit atau Nama Gejala sudah ada');
+        }
+
+
+        if (empty($namaPenyakit) || empty($namaGejala) || empty($mb) || is_null($md)) {
+            // Jika ada input yang kosong, set pesan alert dengan session flash data
+            return redirect()->to('/data_rule')->with('hapus', 'Harap isi semua field');
+        }
 
         // Simpan data ke dalam database
         $data = [
@@ -78,6 +90,17 @@ class RuleController extends BaseController
         $md = $this->request->getPost('md');
         $nilaiCf = $mb - $md;
 
+        // Cek apakah ada perubahan data
+        if (
+            $data['id_penyakit'] == $namaPenyakit &&
+            $data['id_gejala'] == $namaGejala &&
+            $data['mb'] == $mb &&
+            $data['md'] == $md
+        ) {
+            // Tidak ada perubahan data
+            return redirect()->to('/data_rule')->with('warning', 'Tidak ada perubahan data');
+        }
+
         // Simpan data ke dalam database
         $updatedData = [
             'id_penyakit' => $namaPenyakit,
@@ -87,6 +110,7 @@ class RuleController extends BaseController
             'cf' => $nilaiCf
         ];
         $model->update($id, $updatedData);
+
         return redirect()->to('/data_rule')->with('success', 'Data rule berhasil diperbarui');
     }
 }

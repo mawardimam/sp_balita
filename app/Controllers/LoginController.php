@@ -18,6 +18,10 @@ class LoginController extends BaseController
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
+        if (empty($username) || empty($password)) {
+            return redirect()->back()->with('hapus', 'Harap isi semua field');
+        }
+
         $model = new AdminModel();
         $tb_user = $model->validateLogin($username, $password);
 
@@ -29,18 +33,17 @@ class LoginController extends BaseController
                 'nama' => $tb_user['nama']
             ]);
 
+            $session->setFlashdata('success', 'Selamat datang, admin');
+
             return redirect()->to('/main');
         } else {
-            return redirect()->back()->with('error', 'Username atau password salah')->withInput();
+            return redirect()->back()->with('hapus', 'Username atau password salah')->withInput();
         }
     }
 
     public function logout()
     {
-        // Hapus sesi pengguna
         session()->destroy();
-
-        // Arahkan pengguna ke halaman login
         return redirect()->to('/');
     }
 }

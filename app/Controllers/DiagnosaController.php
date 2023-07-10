@@ -46,6 +46,10 @@ class DiagnosaController extends BaseController
             return redirect()->to('mulai_diagnosa')->withInput()->with('hapus', 'Pilih Gejala Minimal 1 disertakan dengan tingkat kepercayaannya');
         }
 
+        if (empty($username) || empty($namaOrtu)) {
+            return redirect()->back()->withInput()->with('hapus', 'Mohon lengkapi data diri sebelum melanjutkan.'); // Redirect kembali ke halaman sebelumnya dengan pesan alert
+        }
+
         $mergedData = array();
         foreach ($listSelectedGejala as $key => $idGejala) {
             $cfUserId = $listCF[$key];
@@ -106,49 +110,55 @@ class DiagnosaController extends BaseController
 
         $groupByPenyakit = array();
 
-        foreach ($cf as $ini) {
-            $groupByPenyakit[$ini['id_penyakit']][] = $ini;
+        foreach ($cf as $apa) {
+            $groupByPenyakit[$apa['id_penyakit']][] = $apa;
         }
 
-        $baru = array();
+        $anyar = array();
 
         if (count($cf) > 1) {
             for ($i = 0; $i < count($cf) - 1; $i++) {
-                $itu = $groupByPenyakit[$cf[$i]['id_penyakit']];
+                $jos = $groupByPenyakit[$cf[$i]['id_penyakit']];
 
-                for ($j = 0; $j < count($itu); $j++) {
-                    $gandos = $itu[$j];
+                if (count($jos) > 1) {
+                    for ($j = 0; $j < count($jos); $j++) {
+                        $gandos = $jos[$j];
 
-                    if ($j == 0) {
-                        $cfCombine = $gandos['nilai_cf'] + $itu[$j + 1]['nilai_cf'] * (1.0 - $gandos['nilai_cf']);
+                        if ($j == 0) {
+                            $cfCombine = $gandos['nilai_cf'] + $jos[$j + 1]['nilai_cf'] * (1.0 - $gandos['nilai_cf']);
 
-                        if (count($itu) - 1 == 1) {
-                            $baru[$i]["nilai_cf"] = $cfCombine;
-                            $baru[$i]["id_penyakit"] = $cf[$i]['id_penyakit'];
-                            break;
+                            if (count($jos) - 1 == 1) {
+                                $anyar[$i]["nilai_cf"] = $cfCombine;
+                                $anyar[$i]["id_penyakit"] = $cf[$i]['id_penyakit'];
+                                break;
+                            }
+                        } else {
+                            if ($j + 1 == count($jos)) {
+                                $anyar[$i]["nilai_cf"] = $cfCombine;
+                                $anyar[$i]["id_penyakit"] = $cf[$i]['id_penyakit'];
+                                break;
+                            }
+                            $cfCombine = $cfCombine + $jos[$j + 1]['nilai_cf'] * (1.0 - $cfCombine);
                         }
-                    } else {
-                        if ($j + 1 == count($itu)) {
-                            $baru[$i]["nilai_cf"] = $cfCombine;
-                            $baru[$i]["id_penyakit"] = $cf[$i]['id_penyakit'];
-                            break;
-                        }
-                        $cfCombine = $cfCombine + $itu[$j + 1]['nilai_cf'] * (1.0 - $cfCombine);
                     }
+                } else {
+                    $cfCombine = $cf[$i]['nilai_cf'];
+                    $anyar[$i]["nilai_cf"] = $cfCombine;
+                    $anyar[$i]["id_penyakit"] = $cf[$i]['id_penyakit'];
                 }
             }
         } else {
             $cfCombine = $cf[0]['nilai_cf'];
-            $baru[0]["nilai_cf"] = $cfCombine;
-            $baru[0]["id_penyakit"] = $cf[0]['id_penyakit'];
+            $anyar[0]["nilai_cf"] = $cfCombine;
+            $anyar[0]["id_penyakit"] = $cf[0]['id_penyakit'];
         }
 
-        for ($i = 0; $i < (count($baru) - count($cf)); $i++) {
-            unset($baru[$i]);
+        for ($i = 0; $i < (count($anyar) - count($cf)); $i++) {
+            unset($anyar[$i]);
         }
 
-        $nilaiPenyakitTerbesar = max($baru)['nilai_cf'];
-        $idPenyakitTerbesar = max($baru)['id_penyakit'];
+        $nilaiPenyakitTerbesar = max($anyar)['nilai_cf'];
+        $idPenyakitTerbesar = max($anyar)['id_penyakit'];
 
         // Ambil data penyakit dengan CF terbesar
         // Ambil deskripsi dan solusi penyakit
@@ -181,9 +191,8 @@ class DiagnosaController extends BaseController
                 'id_gejala' => $val['id_gejala'],
             ]);
         }
-
         $diagnosaGejalaModel->insertBatch($diagnosaGejala);
-
+        // hasil diagnosa
         $resultDiagnosa = [
             'nama_balita' => $username,
             'nama_ortu' => $namaOrtu,

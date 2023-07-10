@@ -25,6 +25,10 @@ class GejalaController extends BaseController
         $kodeGejala = $this->request->getPost('kode_gejala');
         $namaGejala = $this->request->getPost('nama_gejala');
 
+        if (empty($kodeGejala) || empty($namaGejala)) {
+            return redirect()->back()->with('hapus', 'Harap isi semua field');
+        }
+
         // validasi tambah
         $existingGejala = $model->where('kode_gejala', $kodeGejala)
             ->orWhere('nama_gejala', $namaGejala)
@@ -69,6 +73,10 @@ class GejalaController extends BaseController
         // Ambil data dari modal edit
         $kodeGejala = $this->request->getPost('kode_gejala');
         $namaGejala = $this->request->getPost('nama_gejala');
+        // Periksa apakah data gejala yang diubah sama dengan data yang ada sebelumnya
+        if ($data['kode_gejala'] === $kodeGejala && $data['nama_gejala'] === $namaGejala) {
+            return redirect()->to('/data_gejala')->with('warning', 'Tidak ada perubahan data gejala');
+        }
 
         // Simpan data ke dalam database
         $updatedData = [

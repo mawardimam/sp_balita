@@ -16,6 +16,7 @@ class PenyakitController extends BaseController
         ];
         return view('pages/data_penyakit', $data);
     }
+
     public function tambah()
     {
         $model = new PenyakitModel();
@@ -25,6 +26,11 @@ class PenyakitController extends BaseController
         $namaPenyakit = $this->request->getPost('nama_penyakit');
         $deskripsi = $this->request->getPost('deskripsi');
         $solusi = $this->request->getPost('solusi');
+
+        // Validasi form input
+        if (empty($kodePenyakit) || empty($namaPenyakit) || empty($deskripsi) || empty($solusi)) {
+            return redirect()->back()->with('hapus', 'Harap isi semua field');
+        }
 
         //validasi tambah
         $existingPenyakit = $model->where('kode_penyakit', $kodePenyakit)
@@ -49,8 +55,8 @@ class PenyakitController extends BaseController
     public function hapus($id)
     {
         $model = new PenyakitModel();
-        // validasi hapus 
         $ruleModel = new RuleModel();
+        // validasi hapus 
         $ruleCount = $ruleModel->where('id_penyakit', $id)->countAllResults();
         if ($ruleCount > 0) {
             return redirect()->to('/data_penyakit')->with('hapus', 'Data Penyakit tidak dapat dihapus karena masih digunakan dalam rule');
@@ -76,6 +82,11 @@ class PenyakitController extends BaseController
         $namaPenyakit = $this->request->getPost('nama_penyakit');
         $deskripsi = $this->request->getPost('deskripsi');
         $solusi = $this->request->getPost('solusi');
+        // Periksa apakah data penyakit yang diubah sama dengan data yang ada sebelumnya
+        if ($data['kode_penyakit'] === $kodePenyakit && $data['nama_penyakit'] === $namaPenyakit && $data['deskripsi'] === $deskripsi && $data['solusi'] === $solusi) {
+            return redirect()->to('/data_penyakit')->with('warning', 'Tidak ada perubahan data penyakit');
+        }
+
 
         // Simpan data ke dalam database
         $updatedData = [

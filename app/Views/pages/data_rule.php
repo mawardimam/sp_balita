@@ -52,38 +52,6 @@
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
-                    <!-- <script>
-                        document.querySelector("form[ng-submit='itemSearch()']").addEventListener("submit", function(
-                            event) {
-                            event.preventDefault();
-                            var searchText = this.querySelector("input[name='table_search']").value.trim()
-                                .toLowerCase();
-
-                            var rows = document.querySelectorAll(".table tbody tr");
-
-                            for (var i = 0; i < rows.length; i++) {
-                                var row = rows[i];
-                                var namaPenyakit = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
-                                var namaGejala = row.querySelector("td:nth-child(3)").textContent.toLowerCase();
-
-                                if (namaPenyakit.includes(searchText) || namaGejala.includes(searchText)) {
-                                    row.style.display = ""; // Menampilkan baris jika sesuai dengan pencarian
-                                } else {
-                                    row.style.display =
-                                        "none"; // Menyembunyikan baris jika tidak sesuai dengan pencarian
-                                }
-                            }
-
-                            var noResultsRow = document.querySelector(".no-results-row");
-                            if (searchText === "" || document.querySelectorAll(
-                                    ".table tbody tr:not(.no-results-row)").length > 0) {
-                                noResultsRow.style.display =
-                                    "none"; // Menyembunyikan baris jika terdapat hasil pencarian atau pencarian kosong
-                            } else {
-                                noResultsRow.style.display = ""; // Menampilkan baris jika tidak ada hasil pencarian
-                            }
-                        });
-                    </script> -->
                 </table>
             </div>
         </div>
@@ -103,25 +71,27 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label>Nama Penyakit</label>
-                            <select class="form-control" id="id_penyakit" name="id_penyakit">
+                            <select class="form-control" id="id_penyakit" name="id_penyakit" required>
                                 <option selected>Pilih Penyakit</option>
                                 <?php foreach ($penyakit as $item) : ?>
-                                <option value="<?= $item['id_penyakit'] ?>"><?= $item['nama_penyakit'] ?></option>
+                                <option value="<?= $item['id_penyakit'] ?>">
+                                    <?= "[{$item['kode_penyakit']}] {$item['nama_penyakit']}" ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Nama Gejala</label>
-                            <select class="form-control" id="id_gejala" name="id_gejala">
+                            <select class="form-control" id="id_gejala" name="id_gejala" required>
                                 <option selected>Pilih Gejala</option>
                                 <?php foreach ($gejala as $item) : ?>
-                                <option value="<?= $item['id_gejala'] ?>"><?= $item['nama_gejala'] ?></option>
+                                <option value="<?= $item['id_gejala'] ?>">
+                                    <?= "[{$item['kode_gejala']}] {$item['nama_gejala']}" ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Mb</label>
-                            <select class="form-control" name="mb" id="mb">
+                            <select class="form-control" name="mb" id="mb" required>
                                 <option selected>Pilih Nilai Mb</option>
                                 <option>0</option>
                                 <option>0.2</option>
@@ -133,7 +103,7 @@
                         </div>
                         <div class="form-group">
                             <label>Md</label>
-                            <select class="form-control" name="md" id="md">
+                            <select class="form-control" name="md" id="md" required>
                                 <option selected>Pilih Nilai Md</option>
                                 <option>0</option>
                                 <option>0.2</option>
@@ -155,7 +125,6 @@
 </div>
 
 <?php foreach ($rule as $key => $item) : ?>
-<!-- Modal edit data -->
 <div class="modal fade" id="form-edit-<?php echo $item['id_rule']; ?>" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -171,7 +140,7 @@
                             <select name="nama_penyakit" class="form-control">
                                 <?php foreach ($penyakit as $itempenyakit) : ?>
                                 <option value="<?= $itempenyakit['id_penyakit'] ?>"
-                                    <?= ($itempenyakit['id_penyakit'] == $itempenyakit['id_penyakit']) ? 'selected' : '' ?>>
+                                    <?= ($itempenyakit['id_penyakit'] == $item['id_penyakit']) ? 'selected' : '' ?>>
                                     <?= $itempenyakit['nama_penyakit'] ?>
                                 </option>
                                 <?php endforeach; ?>
@@ -182,7 +151,7 @@
                             <select name="nama_gejala" class="form-control">
                                 <?php foreach ($gejala as $itemgejala) : ?>
                                 <option value="<?= $itemgejala['id_gejala'] ?>"
-                                    <?= ($itemgejala['id_gejala'] == $itemgejala['id_gejala']) ? 'selected' : '' ?>>
+                                    <?= ($itemgejala['id_gejala'] == $item['id_gejala']) ? 'selected' : '' ?>>
                                     <?= $itemgejala['nama_gejala'] ?>
                                 </option>
                                 <?php endforeach; ?>
@@ -215,8 +184,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cenncel</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Change</button>
                     </div>
                 </form>
             </div>
